@@ -1,0 +1,377 @@
+@charset "utf-8";
+/* CSS Document */
+html,body{ width:100%; height:100%; padding:0; margin:0;}
+body {
+    color: #000;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    line-height: 1.5;
+	font-size: 100%;
+}
+#home{ height:100%; width:100%; }
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+a:hover {
+    color: red;
+}
+
+#login_status{ font-size: 0.875em; text-align:right; padding-right:1em;  box-sizing: border-box;}
+#blogTitle {
+    padding: 0 16px 16px 16px;
+}
+#blogTitle .title {
+    font-size: 17pt;
+}
+#blogTitle .subtitle {
+    font-size: 10.5pt;
+    color: #999;
+}
+
+#navigator {
+    background: #f6f6f6;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-width: 1px;
+    height: 30px;
+    line-height: 30px;
+    color: #999;
+    padding-left: 15px;
+    padding-right: 5px;
+    padding-top: 2px\9;
+	font-size: 0.875em;
+}
+#navList {
+    line-height: 30px;
+    color: #999;
+	padding:0; margin:0;
+}
+
+#navList li {
+    float: left;
+    margin-right: 20px;
+    font-size: 1em;
+	list-style: none;
+}
+.blogStats {
+    float: right;
+    color: #999;
+}
+.forFlow {
+    margin: 0 50px 0 50px;
+}
+.postTitle, .entrylistPosttitle, .feedback_area_title {
+    border-bottom: 1px solid #ddd;
+    font-size: 1em;
+    font-weight: bold;
+    margin: 20px 0 10px;
+}
+.postCon {
+    overflow: hidden;
+	font-size: 0.875em;
+}
+.clear {
+    clear: both;
+}
+.postDesc, .entrylistItemPostDesc {
+    border-bottom: 0 dotted #999;
+    color: #666;
+    text-align: right;
+    padding-bottom: 5px;
+    vertical-align: middle;
+	font-size: 0.875em;
+}
+#main{ overflow: hidden;  padding-bottom: 20px;}
+#mainContent {
+    margin-right: 330px; 
+	
+	padding-bottom: 20px;
+}
+#sideBar {
+    position:absolute;
+    width: 300px;
+    border-left: 1px solid #ccc;
+    border-top-width: 0;
+    overflow: hidden;
+    padding: 0 8px 20px 30px;
+    top: 124px;
+    right: 0; 
+	
+}
+#calendar {
+    margin-top: 16px;
+    text-align: center;
+}
+#calendar table {
+    width: 90%;
+    margin: 0 auto;
+}
+#calendar .CalOtherMonthDay {
+    color: #999;
+}
+#sideBar h3, #MyIng .ing_title {
+    margin: 16px 0 0 0;
+    font-size: 1em;
+    text-align: left;
+}
+#sideBar li, .divRecentCommentAticle {
+    text-indent: -1.5em;
+    margin-left: 1.5em;
+	list-style: none;
+}
+#sideBar .recent_comment_body {
+    color: #666;
+    margin: 5px 0 8px 18px;
+    text-indent: 0;
+}
+.recent_comment_author {
+    text-align: right;
+    margin-right: 4px;
+}
+.readmore{ color: #06c;}
+
+.page{ text-align: center;}
+.page span,.page a{ display: inline-block;}
+.page .disabled{ color: #b9b9b9;}
+.page .me{color: #0654c9;}
+.subnav{ display: none;}
+#navList > li{ position: relative;}
+#navList > li > ul li ul.subnav{ margin:0; padding:0; position: absolute; background: rgba(122, 122, 122, 0.91);left:99%;top:0; }
+#navList > li > ul{ margin:0; padding:0; position: absolute; background: rgba(122, 122, 122, 0.91); top:29px; z-index: 1;   }
+#navList > li > ul li { position:relative; border-bottom: #fff 1px solid; width: 100%;}
+#navList > li > ul li a{ height: 30px; line-height: 30px; display: block; width: 100%;
+padding: 0 10px;
+color: #fff;
+}
+#navList > li > ul li a:hover{ color: red;}
+
+.feedbackCon {
+    color: #666;
+    line-height: 1.5;
+}
+.blog_comment_body {
+    word-wrap: break-word;
+}
+.comment_vote {
+    text-align: right;
+}
+.comment_vote a {
+    text-decoration: none !important;
+    padding-left: 10px;
+}
+.feedbackCon a {
+    text-decoration: underline;
+    color: #06c;
+}
+.feedbackItem {
+    padding: 8px;
+    border-bottom: 1px dotted #ccc;
+}
+#commentform_title {
+    background-image: url(../images/icon_addcomment.gif);
+    background-repeat: no-repeat;
+    padding: 0 0 0 25px;
+    margin-bottom: 10px;
+}
+
+/********* 登录 ***********/
+#login_box{
+	max-width: 360px;
+	padding: 20px;
+	border-radius: 4px;
+	z-index: -10;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+#login_box .logo {
+	padding-top:30px;
+    height: 70px;
+    width: 100%;
+    z-index: 100;
+    margin: 0;
+	text-align: center;
+}
+#login_box .logo span{ font-size: 36px;}
+#login_box .products{
+    padding: 20px 0;
+    font-size: 0.857em;
+    color: #7c7c7c;
+    text-align: center;
+    overflow: hidden;
+}
+.quc-wrapper {
+    font: 400 12px/1em 'Helvetica Neue',Helvetica,Arial,SimSun,'微软雅黑',Sans-Serif,'宋体';
+    +line-height: 14px;
+}
+.quc-mod-sign-in .quc-tip-wrapper {
+    color: #f84e4e;
+    font-size: 12px;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+	height: 21px;
+	line-height: 21px;
+	padding: 13px 0 0 105px;
+}
+.quc-mod-sign-in .quc-field {
+    width: 100%;
+    height: 45px;
+    overflow: hidden;
+    padding: 5px 0;
+    margin: 0;
+	-moz-box-sizing: content-box;
+}
+.quc-wrapper .quc-main .quc-input-long .quc-input-bg {
+    display: block;
+    width: 100%;
+    height: 43px;
+    background: none;
+    border: 1px solid #e8e8e8;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.quc-wrapper .quc-input {
+    width: 100%;
+    height: 43px;
+    line-height: 43px;
+    margin: 0;
+    padding: 0 25px;
+    box-sizing: border-box;
+    font-size: 12px;
+	color: gray;
+	outline: 0;
+	border: 0;
+	background: 0;
+	font-family: inherit;
+}
+.quc-mod-sign-in .quc-field-submit {
+    margin-top: 20px;
+}
+.quc-wrapper .quc-button {
+    width: 100%;
+    background: #1c9ce4;
+    height: 43px;
+    line-height: 43px;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+    text-indent: 0;
+	display: inline-block;
+	border: 0;
+	outline: 0;
+}
+
+.quc-wrapper .quc-button-sign-in:focus, .quc-wrapper .quc-button-sign-in:hover {
+	background-color: #1388ca;
+}
+.customer {
+    margin: 0;
+	font-size: 14px;
+	color: #7c7c7c;
+	position: relative;
+	padding: 0px;
+	font: 14px "微软雅黑";
+}
+.qiku_login {
+    color: #0d99e9;
+    float: left;
+    text-decoration: none;
+    font-size: 14px;
+}
+.qiku_login:hover {
+    color: #1388ca;
+}
+.customer_1 {font-size: 14px;display: inline-block;}
+.customer_1 > span {
+    line-height: 32px;
+    height: 32px;
+    vertical-align: middle;
+    margin: auto 20px auto 0px;
+    display: inline-block;
+}
+.customer_1 > a {
+    line-height: 32px;
+    height: 32px;
+    display: inline-block;
+}
+.customer_1 > a > img {
+    line-height: 32px;
+    height: 32px;
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: bottom;
+}
+.quc-wrapper .quc-main .quc-input-short .quc-input-bg {
+    float: left;
+    width:55%;
+    height: 43px;
+    background: none;
+    border: 1px solid #e8e8e8;
+    box-sizing: border-box;
+}
+.quc-mod-sign-in .quc-captcha-img {
+    float: right;
+    width:45%;
+    max-width: 130px;
+    height: 43px;
+	vertical-align: middle;
+	outline: 0;
+	cursor: pointer;
+}
+#tbCommentBody{ width: 100%; max-width: 400px; font-size: 0.875em; padding: .5em; line-height: 1.8;}
+#blog-comments-placeholder{ font-size: 0.875em;}
+#comment_form{font-size: 0.875em;}
+#leftcontentcontainer{ font-size: 0.875em;}
+#leftcontentcontainer ul{ margin: 0;padding: 0;}
+#sy_login{ height: 30px; line-height: 30px;}
+#sy_login a{ display: inline-block; height: 30px; line-height: 30px;}
+#sy_login a img{ margin: 0; padding: 0; vertical-align:middle; border:none;}
+.postBody li{ display: list-item }
+@media screen and (max-width:640px){
+	#navList li {
+	    float: left;
+	    margin-right:10px;
+	    font-size: 1em;
+	}
+	.blogStats{ display: none;}
+	#mainContent{
+		margin-right: 0px;
+	}
+	#mainContent .forFlow{
+		margin: 0 1em 0 1em;
+	}
+	#sideBar{
+		border-top:#f1f1f1 1px solid;	
+		position:static;	
+		width: 100%;
+		padding:0;
+		margin:0;
+		border-left: none;
+	}
+	#leftcontentcontainer{
+		margin: 0 1em 0 1em;
+	}
+
+}
+
+.quc-get-sms-token {
+    background: #22ac69;
+    border-radius: 3px;
+    border: 1px solid #22ac69;
+    color: #fff;
+    display: inline-block;
+    float: right;
+    height: 40px;
+    line-height: 38px;
+    margin-top: 4px;
+    padding: 0 15px;
+    text-align: center;
+    width: 86px;
+}
+.quc-get-sms-token:hover{
+    background: #2a8e5d;
+    color: #fff;
+}

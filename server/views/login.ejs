@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title><%= web.title %> -- 登录</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="/static/css/login.css" rel="stylesheet" type="text/css">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/lib/layer-v3.0.3/layer.js"></script>
+    <script type="text/javascript" src="/static/lib/check.js"></script>
+</head>
+<body>
+    <a name="top"></a>
+    <div id="home">
+        <div id="login_box">
+            <div class="logo">
+                <span><%= web.title %></span>
+            </div>
+            <div class="products">
+                每天进步一点点！
+            </div>
+            <div class="login_wrap">
+                <div class="quc-wrapper quc-page" id="loginForm">
+                    <div class="quc-mod-sign-in quc-mod-normal-sign-in">
+                        <div class="quc-main">
+                            <form class="quc-form" action="/login" method="post" id="login-form" onsubmit="return login('login-form');">
+                                <p class="quc-field quc-field-account quc-input-long">
+                                    <span class="quc-input-bg"><input class="quc-input quc-input-account" name="username" id="username" placeholder="手机号/用户名/邮箱"data-tip="请输入正确的登录帐号" autocomplete="off" type="text"></span>
+                                </p>
+                                <p class="quc-field quc-field-password quc-input-long">
+                                    <span class="quc-input-bg">
+                                        <input class="quc-input quc-input-password" name="password" id="password"
+                                            maxlength="20" placeholder="密码/动态密码" data-tip="请输入正确格式的登录密码" type="password"></span>
+                                </p>
+                                <p style="display: ;" class="quc-field quc-field-captcha quc-input-short">
+                                    <span class="quc-input-bg"><input class="quc-input quc-input-captcha" name="code"
+                                            id="code" maxlength="7" autocomplete="off" placeholder="请输入验证码" data-tip="请输入验证码"
+                                            type="text"></span><img  class="quc-captcha-img" src="/tool/verific?type=login" >
+                                            
+                                </p>
+                                <p class="quc-field quc-field-submit">
+                                    <input value=" 登 &nbsp;&nbsp;录" class="quc-submit quc-button quc-button-sign-in"
+                                        type="submit">
+                                </p>
+                                <p class="">
+                                    <a href="#">忘记密码？</a>
+                                    <a href="/reg">注册帐号</a>
+                                </p>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="customer_1">
+                    <span>其他帐号登录：</span>
+                    <a href="#"><img src="/static/default/img/weibo_2.png?v=0.1" style="border-style: none;"></a> 
+                    <a href="#"><img src="/static/default/img/qq_2.png?v=0.1" style="border-style: none;"></a>
+                   
+                </div>
+
+                <div class="vtip"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+            
+            var url_index = '/';
+    </script>
+
+    <script src="/static/default/js/login.js?v=0.1"></script>
+    <script type="text/javascript">
+        $(function () {
+            //验证码
+            var img_src = '/tool/verific?type=login';
+            //$('.quc-captcha-img').attr('src', img_src);
+            $('.quc-captcha-img').click(function (e) {
+                var fg = '?';
+                if (img_src.indexOf("?") > 0) {
+                    var fg = '&';
+                }
+                $(this).attr('src', img_src + fg + Math.random());
+            });
+            //验证码
+        })
+    </script>
+   
+</body>
+
+</html>

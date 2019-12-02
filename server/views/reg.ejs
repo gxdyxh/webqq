@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title><%= web.title %> -- 注册</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="/static/css/login.css?v=0.1" rel="stylesheet" type="text/css">
+    
+</head>
+<body>
+<a name="top"></a>
+<div id="home">
+
+    <div id="login_box">
+        <div class="logo">
+            <span ><%= web.title %></span>
+        </div>
+        <div class="products">
+            希望我能与你共同进步！
+        </div>
+
+        <div class="login_wrap">
+            <div class="quc-wrapper quc-page" id="loginForm">
+                <div class="quc-mod-sign-in quc-mod-normal-sign-in">
+
+                    <div class="quc-main">
+                        <form class="quc-form" action="/reg" method="post" id="reg-form" onsubmit="return register('reg-form');">
+                            <p class="quc-field quc-field-account quc-input-long">
+
+									<span
+                                            class="quc-input-bg"><input
+                                                class="quc-input quc-input-account" name="username" id="username"
+                                                placeholder="6-15字母/数字的用户名" data-tip="请输入正确格式的用户名" autocomplete="off" type="text"></span>
+                            </p>
+                            <p class="quc-field quc-field-password quc-input-long">
+									<span class="quc-input-bg">
+									<input
+                                            class="quc-input quc-input-password" name="password" id="password"
+                                            maxlength="20" placeholder="6-20位密码" data-tip="请输入正确格式的登录密码" type="password"></span>
+                            </p>
+                            <p class="quc-field quc-field-password quc-input-long">
+									<span class="quc-input-bg">
+									<input
+                                            class="quc-input quc-input-password" name="repassword" id="repassword"
+                                            maxlength="20" placeholder="请再次输入密码" data-tip="请输入正确的确认密码" type="password"></span>
+                            </p>
+                            <!--
+                            <p class="quc-field quc-field-password quc-input-long">
+									<span class="quc-input-bg">
+									<input
+                                            class="quc-input quc-input-password" name="mail" id="mail"
+                                            maxlength="20" placeholder="请输入邮箱地址" data-tip="请输入正确格式的邮箱地址" type="text"></span>
+                            </p>
+                            <p style="display: ;"
+                               class="quc-field quc-field-captcha quc-input-short">
+									<span
+                                            class="quc-input-bg"><input
+                                                class="quc-input quc-input-captcha" name="mcode" id="mcode"
+                                                maxlength="6" autocomplete="off" placeholder="请输入邮箱验证码" data-tip="请输入邮箱验证码"
+                                                type="text"></span>
+                                                <a data-click="true" class="quc-get-sms-token" id="sendMailCode" data-url="/api/tool/mailcode.html?type=reg" >获取验证码</a>
+                            </p>
+                            -->
+                            <p style="display: ;"
+                               class="quc-field quc-field-captcha quc-input-short">
+									<span
+                                            class="quc-input-bg"><input
+                                                class="quc-input quc-input-captcha" name="code" id="code"
+                                                maxlength="4" autocomplete="off" placeholder="请输入验证码" data-tip="请输入验证码"
+                                                type="text"></span><img class="quc-captcha-img quc-captcha-change" alt="验证码"
+                                        title="点击更换" src=""  tabindex="99">
+                            </p>
+
+                            <p class="quc-field quc-field-submit">
+                                <input value=" 注 &nbsp;&nbsp;册"
+                                       class="quc-submit quc-button quc-button-sign-in" type="submit">
+                            </p>
+                            <p class="">
+                                <a href="#">忘记密码？</a>
+                                <a href="/login">已有帐号</a>
+                            </p>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="vtip"></div>
+        </div>
+
+    </div>
+
+</div>
+<script type="text/javascript" src="/static/lib/jquery.3.1.0.min.js"></script>
+<script type="text/javascript" src="/static/lib/layer-v3.0.3/layer.js"></script>
+<script type="text/javascript" src="/static/lib/check.js"></script>    
+<script>
+    var url_index='/';
+    var url_login='/login';
+</script>
+<script src="/static/default/js/login.js?v=0.1"></script>
+<script type="text/javascript">
+    $(function(){
+        //验证码
+        var img_src='/tool/verific?type=reg';
+        $('.quc-captcha-img').attr('src',img_src);
+        $('.quc-captcha-img').click(function(e) {
+            var fg='?';
+            if(img_src.indexOf("?") > 0 ){
+                var fg='&';
+            }
+            $(this).attr('src',img_src+fg+Math.random());
+        });
+        //验证码
+
+    })
+</script>
+</body>
+</html>

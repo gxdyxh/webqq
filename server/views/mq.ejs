@@ -1,0 +1,399 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Remenber QQ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mqq-bottom-ad" content="no">
+    <style>
+        .toast {
+            background-color: #fefacd;
+            line-height: 26px;
+            font-size: 11px;
+            width: 100%;
+            text-align: center;
+            font-family: PingFang;
+            z-index: 100001;
+            position: absolute;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="/static/mq.css">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/lib/layer-v3.0.3/layer.js"></script>
+    <script type="text/javascript" src="/static/lib/layui/layui.all.js"></script>
+    <script src="https://cdn.bootcss.com/iScroll/5.2.0/iscroll.min.js"></script>
+    <script src="https://cdn.bootcss.com/dot/2.0.0-beta.0/doT.min.js"></script>
+    <script src="/static/biaoqing.js"></script>
+    <!--[if lt IE 8]><script src="/static/json3.min.js"></script><![endif]-->
+   <script>
+       var nowUserId = <%= nowUser.id %>;
+   </script>
+</head>
+
+<body class="black" >
+    <!-- 背景图 -->
+    <div id="bgAllImage"></div>
+
+    <div class="wrap">
+        <div id="main_container" style="display: block;">
+            <div class="panel main-panel" style="display: block;">
+                <div id="panelBodyWrapper-0" class="panel_body_container" style=" bottom: 50px;">
+                    <div id="panelBody-0" class="panel_body ">
+                        <div id="mainTopAll" cmd="void">
+                            <div class="accountHeader">
+                                <div class="avatar_wrap">
+                                    <img class="now_user_header" src="<%= nowUser.headimg %>" onerror="javascript:this.src='/static/image/default.jpg'" width="40" height="40">
+                                    <!-- <span id="user_online_state" class="state_online"></span> -->
+                                </div>
+                                <span class="text_ellipsis user_nick"><%= nowUser.nickname %></span>
+                                <span class="text_ellipsis user_shuoshuo"><%= nowUser.autograph %></span>
+                                <div class="icons_list">
+                                    <a href="https://qzone.qq.com" class="i_qzone" target="_blank" title="QQ空间">QQ空间</a>
+                                    <a href="https://mail.qq.com" class="i_mail" target="_blank" title="QQ邮箱">QQ邮箱</a>
+                                    <a href="http://t.qq.com" class="i_weibo" target="_blank" title="腾讯微博">腾讯微博</a>
+                                    <a href="https://v.qq.com" class="i_video" target="_blank" title="腾讯视频">腾讯视频</a>
+                                    <a href="http://www.qq.com" class="i_qqwebsite" target="_blank" title="腾讯网">腾讯网</a>
+                                    <a href="https://y.qq.com" class="i_music" target="_blank" title="QQ音乐">QQ音乐</a>
+                                    <a href="https://wallet.tenpay.com/web/" class="i_wallet" target="_blank" title="QQ钱包">QQ钱包</a>
+                                    <a href="http://www.pengyou.com" class="i_pengyou" target="_blank" title="朋友网">朋友网</a>
+                                    <a href="https://www.weiyun.com" class="i_weiyun" target="_blank" title="微云">微云</a>
+                                </div>
+                            </div>
+                            <div class="wallpaper-ctrl">
+                                <a href="###" class="wallpaperImg pre" id="wp-ctrl-pre" title="点击切换背景图片" cmd="clickWPPre"> </a>
+                                <a href="###" class="wallpaperImg next" id="wp-ctrl-next" title="点击切换背景图片" cmd="clickWPNext"> </a>
+                            </div>
+                        </div>
+                        <div class="panel panel_session selected" id="panel-1">
+                            <header id="panelHeader-1" class="panel_header">
+                                <h1 id="panelTitle-1" class="text_ellipsis padding_20">会话</h1>
+                            </header>
+                            <div id="panelBodyWrapper-1" class="panel_body_container" style="top: 45px; ">
+                                <div id="panelBody-1" class="panel_body ">
+                                    <div id="current_chat_scroll_area" class="scrollWrapper" style="overflow: hidden;" cmd="void">
+                                        <ul id="current_chat_list" class="list list_white">
+                                        </ul>
+                                    </div>
+                                </div>
+                                <ul id="pannelMenuList-1" class="pannel_menu_list">
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div class="panel panel_contact " id="panel-2" cmd="void">
+                            <header id="panelHeader-2" class="panel_header">
+                                <div id="panelLeftButton-2" class="btn btn_small btn_left btn_black contact_null_btn" cmd="clickLeftButton">
+                                    <span id="panelLeftButtonText-2" class="btn_text">返回</span>
+                                </div>
+                                <h1 id="panelTitle-2" class="text_ellipsis padding_20">联系人</h1>
+                                <button id="panelRightButton-2" class="btn btn_small btn_right btn_black btn_search gxcmd" cmd="initSearchPlanel" _type="friend">
+                                    <span id="panelRightButtonText-2" class="btn_img"></span>
+                                </button>
+                            </header>
+                            <div id="panelBodyWrapper-2" class="panel_body_container" style="top: 45px;">
+                                <div id="panelBody-2" class="panel_body ">
+                                    <div id="contactList" class="tab tab_animate member_tab">
+                                        <ul id="memberTab" class="tab_head">
+                                            <li cmd="clickMemberTab" param="friend" class="active">好友</li>
+                                            <li cmd="clickMemberTab" param="group">群</li>
+                                        </ul>
+                                        <ul class="tab_body member_tab_body">
+                                            <li id="memberTabBody-friend" class="active">
+                                                <div id="f_list_scroll_area" class="member_scroll_area" style="overflow: hidden;">
+                                                    <ul id="friend_groupList" class="group_list member_group_list">
+                                                       
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li id="memberTabBody-group">
+                                                <div id="group_list_scroll_area" class="member_scroll_area" style="overflow: hidden;">
+                                                    <ul id="g_list" class="list list_white catogory_List" style="transition-property: -webkit-transform; transform-origin: 0px 0px 0px; transform: translate(0px, 0px) translateZ(0px);">
+
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li id="memberTabBody-discuss">
+                                                <div id="discuss_list_scroll_area" class="member_scroll_area" style="overflow: hidden;">
+                                                    <ul id="d_list" class="list list_white catogory_List" style="transition-property: -webkit-transform; transform-origin: 0px 0px 0px; transform: translate(0px, 0px) translateZ(0px);">
+
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <ul id="pannelMenuList-2" class="pannel_menu_list">
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div class="panel panel_plugin" id="panel-3" cmd="void">
+                            <header id="panelHeader-3" class="panel_header">
+                                <h1 id="panelTitle-3" class="text_ellipsis padding_20">发现</h1>
+                            </header>
+                            <div id="panelBodyWrapper-3" class="panel_body_container" style="top: 45px; overflow: hidden;">
+                                <div id="current_notice_scroll_area" class="panel_body plugin">
+                                    <ul id="notice_list" class="clearfix"></ul>
+                                </div>
+                                <ul id="pannelMenuList-3" class="pannel_menu_list">
+                                </ul>
+                            </div>
+
+                        </div>
+                        
+                        <!-- <div class="panel panel_setting" id="panel-4" cmd="void">
+                            <header id="panelHeader-4" class="panel_header">
+                                <h1 id="panelTitle-4" class="text_ellipsis padding_20">设置</h1>
+                            </header>
+                            <div id="panelBodyWrapper-4" class="panel_body_container" style="top: 45px; overflow: hidden;">
+                                <div id="panelBody-4" class="panel_body list_page setting" style="transition-property: -webkit-transform; transform-origin: 0px 0px 0px; transform: translate(0px, 0px) translateZ(0px);"></div>
+                                <ul id="pannelMenuList-4" class="pannel_menu_list">
+                                </ul>
+                            </div>
+                        </div> -->
+
+                        <div class="panel panel_setting" id="panel-4" cmd="void">
+                            <header id="panelHeader-4" class="panel_header">
+                        
+                                <h1 id="panelTitle-4" class="text_ellipsis padding_20">设置</h1>
+                        
+                            </header>
+                        
+                            <div id="panelBodyWrapper-4" class="panel_body_container" style="top: 45px; overflow: hidden;">
+                                <div id="panelBody-4" class="panel_body list_page setting" >
+                                    
+                                    
+                                    <div class="group">
+                                        <div class="row clearfix">
+                                            <div class="cloumn" id="now_user_avatar_box">
+                                                <img class="avatar now_user_header" id="now_user_avatar" src="<%= nowUser.headimg %>" onerror="javascript:this.src='/static/image/default.jpg'">
+                                            </div>
+                                            <div class="cloumn profile_title_setting">
+                                                <div class="text_ellipsis profile_name row gxcmd" cmd="updateNickname" id="now_user_nickname"><%= nowUser.nickname %></div>
+                                                <div class="row profile_account"><%= nowUser.username %></div>
+                                            </div>                    
+                                        </div>
+                                    </div>
+
+                                    <div class="group">
+                                        <div class="row profile_signature gxcmd" cmd="updateAutograph">
+                                            <span class="label">个性签名: </span>
+                                            <span id="now_user_autograph"><%= nowUser.autograph %></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="group clickAble gxcmd" cmd="showFriendGroup">
+                                        <div class="row ">
+                                            管理分组
+                                            <span class="more_icon"></span>
+                                        </div>
+                                    </div>
+                        
+                                    <div class="group clickAble gxcmd" cmd="clickLogout">
+                                        <div class="row loginout">
+                                            退出当前帐号
+                                        </div>
+                                    </div>
+                                </div>
+                              
+                            </div>
+                        
+                        </div>
+
+
+
+
+                    </div>
+                    <ul id="pannelMenuList-0" class="pannel_menu_list">
+                    </ul>
+                </div>
+
+                <footer id="panelFooter-0" class="">
+                    <nav id="nav_tab" cmd="void">
+                        <ul class="nav_tab_head">
+
+                            <li id="session" class="contact selected point" cmd="clickNav" param="session">
+                                <a>
+                                    <div class="icon"></div>
+                                    <span>会话</span>
+
+                                </a>
+                            </li>
+
+                            <li id="contact" class="conversation" cmd="clickNav" param="contact">
+                                <a>
+                                    <div class="icon"></div>
+                                    <span>联系人</span>
+                                </a>
+                            </li>
+
+                            <li id="plugin" class="plugin" cmd="clickNav" param="plugin">
+                                <a>
+                                    <div class="icon"></div>
+                                    <span>发现</span>
+                                </a>
+                            </li>
+
+                            <li id="setting" class="setup" cmd="clickNav" param="setting">
+                                <a>
+                                    <div class="icon"></div>
+                                    <span>设置</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                        <div class="wallpaper-ctrl">
+                            <a href="javascript:void(0);" class="wallpaperImg pre" id="wp-ctrl-pre" title="点击切换背景图片" cmd="clickWPPre"> </a>
+                            <a href="javascript:void(0);" class="wallpaperImg next" id="wp-ctrl-next" title="点击切换背景图片" cmd="clickWPNext"> </a>
+                        </div>
+                        <div class="suggestion">
+                            <a href="https://support.qq.com/discuss/513_1.shtml" target="_blank">意见反馈</a>
+                        </div>
+                        <div id="onlinecount" class="onlinecount"></div>
+                    </nav>
+
+
+                </footer>
+
+            </div>
+        </div>
+        <div id="container" class="container" style="display: block;">
+        </div>
+    </div>
+    
+    <div class="masker" style="display: none;"></div>
+    <div class="login-panel" style="display: none;">
+        
+    </div>
+    <div class="hiddenIframe">
+        
+    </div>
+    <div class="hiddenIframe">
+        
+    </div>
+    <div id="qb-sougou-search" style="display: none; opacity: 0;">
+        <p>搜索</p>
+        <p class="last-btn">复制</p>
+        
+    </div>
+    <div id="qb_collection_img_mask" style="display: none; top: -27px; left: 1547.5px;">
+        <div class="qb_collection_img_icon"></div>
+        <span>收藏</span>
+    </div>
+
+    <script src="/static/mq.js"></script>
+
+    <script>
+        //定义scroll容器
+        
+
+        //背景图
+        bg.init(26);
+        planel.init();
+        
+        $(function() {
+            //切换左侧显示
+            $('body').on('click tap', '#nav_tab li', function (e) {
+                if (!$(this).hasClass('selected')) {
+                    $('.panel_' + $(this).attr('param')).show().siblings('.panel').hide();
+                    $(this).addClass('selected').siblings().removeClass('selected');
+                    
+
+                    var dom = '';
+                    switch ($(this).attr('param')) {
+                        case 'session':
+                            dom = 'current_chat_scroll_area';
+                            break;
+                        case 'contact':
+                            dom = $('#memberTab > li').eq(0).hasClass('active') ? 'f_list_scroll_area': 'group_list_scroll_area';
+                            break;
+                         case 'plugin':
+                            planel.getNoticlelist();
+                            dom = 'current_notice_scroll_area';
+                            break;
+                         case 'setting':
+                            dom = 'panelBodyWrapper-4';
+                            break;            
+                        default:
+                            dom = 'current_chat_scroll_area';
+                            break;
+                    }
+                    planel.setScroll(dom);
+
+                }
+            });
+
+            // 切换好友显示类型
+            $('body').on('click tap', '#contactList #memberTab li', function (e) {
+                if (!$(this).hasClass('active')) {
+                    $('#memberTabBody-' + $(this).attr('param')).addClass('active').siblings().removeClass('active');
+                    $(this).addClass('active').siblings().removeClass('active');
+                    
+                    switch ($(this).attr('param')) {
+                        case 'group':
+                            // qunliaoScroll !==null && qunliaoScroll.destroy();
+                            // qunliaoScroll =null;
+                            // qunliaoScroll = new IScroll('#group_list_scroll_area', {
+                            //     scrollbars: true
+                            // });
+                            
+                            $('#panelRightButton-2').removeClass('btn_search').addClass('btn_add');
+                            $('#panelRightButton-2').attr('cmd','initAddGroup');
+                            break;
+                        default:
+                            // haoyouScroll!==null && haoyouScroll.destroy();
+                            // haoyouScroll=null;
+                            // haoyouScroll = new IScroll('#f_list_scroll_area', {
+                            //     scrollbars: true
+                            // });
+                            $('#panelRightButton-2').removeClass('btn_add').addClass('btn_search');
+                            $('#panelRightButton-2').attr('cmd','initSearchPlanel')
+                            break;
+                    }
+                }
+            });
+
+            
+            //切换背景图
+            $('body').on('click tap', '.wallpaperImg', function (e) {
+                var cmd = $(this).attr('cmd');
+                window.bg[cmd]();
+            })
+
+           
+        })
+    </script>
+    <script type="text/javascript" src="/static/myWebsocket.js"></script>
+    <script type="text/javascript" src="/static/chat.js"></script>
+    <script>  
+        var ws = window.location.host;
+        CHAT.init('<%= nowUser.token %>','ws://'+ws);
+    </script>
+    <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+    <script>eruda.init();</script>
+    
+    <script>
+        var upload = layui.upload; //上传插件
+        //执行实例
+        var uploadInst = upload.render({
+            elem: '#now_user_avatar_box' //绑定元素
+            ,url: '/api/fileup' //上传接口
+            ,data:{subdir:'user_hader',filename:nowUserId}
+            ,done: function(res){
+            //上传完毕回调  
+                if(res.status){
+                    planel.updateHeadImg(res.data.url);
+                }else{
+                    alert('图片上传失败');
+                }
+            }
+            ,error: function(){
+            //请求异常回调
+                alert('图片上传失败');
+            }
+        });
+    </script>
+</body>
+
+</html>
